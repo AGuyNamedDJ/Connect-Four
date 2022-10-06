@@ -21,6 +21,16 @@ The game ends when there is a 4-in-a-row or a stalemate.
 
 ---
 
+Design
+
+Board = Cafe Au Lait or Cashmere
+Opp 1 = Almond or Buttercream
+Opp 2 = Cafe NOir or Coffee
+
+Dark COlor Outer Border?
+
+---
+
 Rubric
 
 Requirements
