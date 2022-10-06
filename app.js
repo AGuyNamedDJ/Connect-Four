@@ -18,7 +18,8 @@ let gameState = {
     let listContainerEle = document.getElementsByClassName("container-ele");
 
 // Step 2) Lets us a loop to make a bunch of elemeents at once.
-for (let numOfElementsToCrate = 1; numOfElementsToCrate<= 20; numOfElementsToCrate++) {
+for (let numOfElementsToCreate = 1; numOfElementsToCreate <= 20; numOfElementsToCreate++) {
     let newElement = document.createElement("li");
-    console.log("Current element we are on: $(numOfElementsToCreate)")
+    newElement.textContent = `This is pokemon #${numOfElementsToCreate}`
+    listContainerEle.appendChild(newElement);
 };

@@ -1,8 +1,18 @@
-## Arcade
+## Connect Four
 
 We're going to build an arcade! The goal is to build your best game possible during this four-class hackathon!
 
 ---
+
+CONNECT FOUR
+
+Objective:
+
+` The rules are simple: Tey to build a row of four checkers while keeping your opponent from doing the same; either vertically, horizontally, or diagonally. Sounds easy, but it's not!`
+
+---
+
+How To Play:
 
 Rubric
 
