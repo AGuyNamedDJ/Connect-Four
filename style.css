@@ -1,0 +1,23 @@
+body {
+    background-color: #7D5C43;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
+#board {
+    background-color: #A67B5B ;
+    border: 8px solid #4B3621 ;
+    height: 850px;
+    margin: auto;
+    width: 850px;
+
+}
+
+#h1 {
+    color: solid white;
+}
+
+#h2 {
+    color: #white
+
+}
