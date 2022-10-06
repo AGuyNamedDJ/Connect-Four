@@ -14,6 +14,13 @@ Objective:
 
 How To Play:
 
+Decide who goes first and wht color each player will have.
+Players alternate turns.
+On your turm drop one of your colored disc into any of the avaible slots.
+The game ends when there is a 4-in-a-row or a stalemate.
+
+---
+
 Rubric
 
 Requirements
