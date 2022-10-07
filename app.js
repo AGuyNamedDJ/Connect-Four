@@ -1,13 +1,38 @@
-// Players
-var playerOne = "one";
-var playerTwo = "two";
-var currentPlayer = playerOne;
+// Game State
 
-// Set Tiles
-function setTiles () {
+    // Board
+    var Board;
+    var rows = 6:
+    var columns = 7;
+
+    // Game Status
+    var gameEnded = false;
+
+    // Players
+    var playerOne = "one";
+    var playerTwo = "two";
+    var currentPlayer = playerOne;    
+
+// When the Page Loads
+window.onload = function(){
+    loadBoard();
+}
+
+function loadBoard  () {
     board = [];
-    for (i = 0; i < rows; i++){
-        
+    for (let  i = 0; i < rows; i++){
+        let row = [];
+        for (let j = 0; j < columns; j++){
+            row.push(" ");
+
+            let circle = document.createElement("div");
+            circle.id = i.toString() + "-" + j.toString();
+
+        }
+ 
+
+        let tile = document.createElement("div");
+        tile.id = 
     }
 }
 
@@ -16,35 +41,3 @@ function setTiles () {
 
 
 
-
-
-
-
-
-// Scratch Work
-
-// State
-let gameState = {
-    totalNumOfResources: 0,
-    numOfPassiveResourcesGenerated: 0,
-    gameBoard: {
-        [undefined, undefined, undefined],
-        [undefined, undefined, undefined],
-        [undefined, undefined, undefined],
-    };
-    intervalLoopId: undefined
-};
-
-
-// What Game are we making.  Tik Tak Toe or COnnect 4?
-// Creating multiple HTML elements all at the same time
-    //Grab the element where you want to store all of those new elements
-    // so try a container
-    let listContainerEle = document.getElementsByClassName("container-ele");
-
-// Step 2) Lets us a loop to make a bunch of elemeents at once.
-for (let numOfElementsToCreate = 1; numOfElementsToCreate <= 20; numOfElementsToCreate++) {
-    let newElement = document.createElement("li");
-    newElement.textContent = `This is pokemon #${numOfElementsToCreate}`
-    listContainerEle.appendChild(newElement);
-};

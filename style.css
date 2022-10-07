@@ -1,14 +1,15 @@
+
 body {
     background-color: #7D5C43;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 
-#board {
+.board {
     /* Using these dimensions because they are divisable by 7, which makes the board even */
-    background-color: #A67B5B ;
+    background: #A67B5B ;
     border: 8px solid #4B3621 ;
-    box-shadow: 8px 8px rgba(0, 0, 0, 0.500);
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.470);
         /* The last value changes opacity. */
     height: 910px;
     margin: auto;
@@ -18,7 +19,10 @@ body {
 }
 
 .circles {
-    background-color: #7D5C43;
+    background: white;
+    height: 90px;
+    padding: 2rem  ;
+    width: 90px;
 
 }
 
@@ -26,11 +30,7 @@ body {
     color: #A67B5B;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-}
-
-.game {
-
-}
+} 
 
 #h1 {
     color: #A67B5B;
