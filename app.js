@@ -3,6 +3,14 @@ var playerOne = "one";
 var playerTwo = "two";
 var currentPlayer = playerOne;
 
+// Set Tiles
+function setTiles () {
+    board = [];
+    for (i = 0; i < rows; i++){
+        
+    }
+}
+
 
 // Size of Connect 4 Board = 7 Columns, 6 Rows
 
