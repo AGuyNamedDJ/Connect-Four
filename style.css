@@ -46,10 +46,13 @@ body {
     color: #F0E3CE;
         /* Bleach White */
     cursor: pointer;
-    left: 50%;
+    height: 55px;
+    left: 45%;
+        /* Looks center */   
+    padding: 0.6%;
+        /* Tying to center the toggle, but can't get it perfect */
     position: absolute;
     text-align: center;
-    transform: translate(-50%);
     width: 90px;
 }
 
