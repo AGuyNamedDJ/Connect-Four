@@ -15,9 +15,13 @@ body {
 .board {
     background: #4B3621;
         /* Cafe Noir */
-    border: 8px solid rgba(0, 0, 0, 0.220);
+    border: 8px solid rgba(0, 0, 0, 0.130);
+        /* The last value changes opacity. */
     border-radius: 5%;
         /* Curves outer board */
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.470);
+        /* Adds a cool shadow effect */
+        /* The last value changes opacity. */
     height: 875px;
     padding: 20px;
     position: fixed;
@@ -38,7 +42,7 @@ body {
 .clear {
     border: 3px solid #4B3621;
         /* Cafe Noir */
-    bottom: -80px;
+    bottom: -90px;
     color: #F0E3CE;
         /* Bleach White */
     cursor: pointer;
@@ -46,7 +50,7 @@ body {
     position: absolute;
     text-align: center;
     transform: translate(-50%);
-    width: 5rem;
+    width: 90px;
 }
 
 h1{
