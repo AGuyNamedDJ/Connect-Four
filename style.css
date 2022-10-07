@@ -7,6 +7,7 @@
 
 body {
     background: #7D5C43;
+        /* Sienna */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
@@ -14,11 +15,10 @@ body {
 .board {
     background: #4B3621;
         /* Cafe Noir */
-    border: 10px;
+    border: 8px solid rgba(0, 0, 0, 0.220);
     border-radius: 5%;
         /* Curves outer board */
-    box-shadow: rgba(0, 0, 0, 0.500);
-    height: 860px;
+    height: 875px;
     padding: 20px;
     position: fixed;
     top: 200px;
@@ -28,7 +28,7 @@ body {
 
 .circle {
     background: #F0E3CE;
-    border: 1px brown;
+        /* Bleach White */
     border-radius: 100%;
         /* Curves inner board */
     height: 135px;
@@ -39,7 +39,8 @@ body {
     border: 3px solid #4B3621;
         /* Cafe Noir */
     bottom: -80px;
-    color: white;
+    color: #F0E3CE;
+        /* Bleach White */
     cursor: pointer;
     left: 50%;
     position: absolute;
