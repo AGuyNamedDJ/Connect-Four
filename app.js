@@ -1,3 +1,20 @@
+// Players
+var playerOne = "one";
+var playerTwo = "two";
+
+
+
+// Size of Connect 4 Board = 7 Columns, 6 Rows
+
+
+
+
+
+
+
+
+// Scratwh Work
+
 // State
 let gameState = {
     totalNumOfResources: 0,
