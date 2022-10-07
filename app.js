@@ -1,5 +1,4 @@
 // Game State
-
     // Board
     var Board;
     var rows = 6:
@@ -14,9 +13,21 @@
     var currentPlayer = playerOne;    
 
 
+// Selectors
+let boardRow = document.getElementById("tr"); 
+let boardCell = document.getElementById("td");
+let boardCircle = document.querySelector(".circle");
+let currentPlayer = document.querySelector(".currentPlayer");
+let clear = document.querySelector(".clear");
+
+// Get the location for what slot we click on.
+ for (let i = 0; i < tableCell.length; i++) {
+    // So why i is less than the cells
+    tableCell[i].addEventListener("click", )
+ }
 
 
-// Size of Connect 4 Board = 7 Columns, 6 Rows
 
 
 
+// stopped at 114

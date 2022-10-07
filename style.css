@@ -33,7 +33,7 @@ body {
 .circle {
     background: #F0E3CE;
         /* Bleach White */
-    border-radius: 100%;
+    border-radius: 50%;
         /* Curves inner board */
     height: 135px;
     width: 135px;
