@@ -1,16 +1,19 @@
 body {
     background-color: #7D5C43;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 
 #board {
+    /* Using these dimensions because they are divisable by 7, which makes the board even */
     background-color: #A67B5B ;
     border: 8px solid #4B3621 ;
-    height: 950px;
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.500);
+        /* The last value changes opacity. */
+    height: 910px;
     margin: auto;
     position: center;
-    width: 850px;
+    width: 840px;
 
 }
 
@@ -19,11 +22,20 @@ body {
 
 }
 
+.game {
+
+}
+
 #h1 {
-    color: solid white;
+    color: #A67B5B;
 }
 
 #h2 {
-    color: #white
+    color: #A67B5B;
+
+}
+
+#player-turn {
+    color: #A67B5B;
 
 }
