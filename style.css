@@ -39,6 +39,11 @@ body {
     width: 135px;
 }
 
+.circle:hover {
+    background-color: rgba(205, 127, 50, 0.500);
+        /* Bronze w/ opacity change */;
+}
+
 .clear {
     border: 3px solid #4B3621;
         /* Cafe Noir */
@@ -46,6 +51,7 @@ body {
     color: #F0E3CE;
         /* Bleach White */
     cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 55px;
     left: 45%;
         /* Looks center */   
@@ -57,5 +63,26 @@ body {
 }
 
 h1{
-    text-align: center;
+    color: #F0E3CE;
+        /* Bleach White */
+}
+
+h2{
+    color: #F0E3CE;
+        /* Bleach White */
+}
+
+.player-one-chip {
+    background-color: #7D5C43;
+}
+    /* light color; same color as body */
+
+.player-two-chip {
+    background-color: rgba(0, 0, 0, 0.470);
+}
+    /* darker color; same color as box shadow */
+
+.player-turn{
+    color: #F0E3CE;
+        /* Bleach White */
 }
