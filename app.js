@@ -11,10 +11,9 @@ while (!playerTwo){
 };
 var playerTwoColor = 'yellow';
 
-// Selectors
-var tableRow = document.getElementsByTagName('tr');
-var tableData = document.getElementsByTagName('td');
-var playerTurn = document.querySelector('.player-turn');
+let tableRow = document.getElementsByTagName('tr');
+let tableData = document.getElementsByTagName('td');
+let playerTurn = document.querySelector('.player-turn');
 const slots = document.querySelectorAll('.slot');
 const reset = document.querySelector('.reset');
 
@@ -42,17 +41,29 @@ function changeColor(e){
     for (i = 5; i > -1; i--){
         //Starting from the bottom so we go negative(-)
         if (tableRow[i].children[column].style.backgroundColor == 'white'){
+            // So if the cell is white (unused) we can change the color
             row.push(tableRow[i].children[column]);
             if (currentPlayer === 1){
-            
-};
+                row[0].style.backgroundColor = 'red';
+                    // playerOnes Color is put in the index
+                }
+            }else{
+                // Else is for playerTwo
+                row[0].style.backgroundColor = 'yellow';
+            }
+        }
+    }
 
-
-
-// Need to Add Event Listener to the Circles
-// Review this, this may not be needed b/c in css
 Array.prototype.forEach.call(tableData, (cell) => {
     cell.addEventListener('click', changeColor);
+    // Set all slots to white for new game.
     cell.style.backgroundColor = 'white';
-        //Resets the color for a new game
 });
+
+// Functions for Checking for a Winner
+
+function matchingColors(one, two, three, four){
+    // Are there 4 colors in a row
+    // this will be used in the other functions
+    return (one === two && one === three && one === four && one !== 'white' && one !== undefined);
+}
