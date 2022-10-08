@@ -1,8 +1,9 @@
 /* Global Scope */
-* {
+*{
     box-sizing: border-box;
     margin: 0;
-    padding:0%;
+    margin-top: 10px;
+        /* Set indention from top of page */
 }
 
 body {
@@ -12,39 +13,7 @@ body {
     text-align: center;
 }
 
-.board {
-    background: #4B3621;
-        /* Cafe Noir */
-    border: 8px solid rgba(0, 0, 0, 0.130);
-        /* The last value changes opacity. */
-    border-radius: 5%;
-        /* Curves outer board */
-    box-shadow: 8px 8px rgba(0, 0, 0, 0.470);
-        /* Adds a cool shadow effect */
-        /* The last value changes opacity. */
-    height: 875px;
-    padding: 20px;
-    position: fixed;
-    top: 200px;
-    transform: translate(20%);
-    width: 840px;
-}
-
-.circle {
-    background: #F0E3CE;
-        /* Bleach White */
-    border-radius: 50%;
-        /* Curves inner board */
-    height: 135px;
-    width: 135px;
-}
-
-.circle:hover {
-    background-color: rgba(205, 127, 50, 0.500);
-        /* Bronze w/ opacity change */;
-}
-
-.clear {
+.clear{
     border: 3px solid #4B3621;
         /* Cafe Noir */
     bottom: -90px;
@@ -62,6 +31,42 @@ body {
     width: 90px;
 }
 
+.clear:hover{
+transition: 0.8s;
+box-shadow: 0px 0px #888888;
+}
+
+.game{
+    box-shadow: 5px 10px #888888;
+    background: #4B3621;
+        /* Cafe Noir */
+    border: 8px solid rgba(0, 0, 0, 0.130);
+        /* The last value changes opacity. */
+    border-radius: 5%;
+        /* Curves outer board */
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.470);
+        /* Adds a cool shadow effect */
+        /* The last value changes opacity. */
+    height: 875px;
+    padding: 20px;
+    position: fixed;
+    top: 200px;
+    transform: translate(20%);
+    width: 840px;
+}
+
+.game table tr td{
+    background-color: #F0E3CE;
+    border: 3px solid rgba(205, 127, 50, 0.80);
+        /* Puts gold border around circles */
+    border-radius: 50%;
+        /* Curves inner board */
+    cursor: pointer;
+    height: 135px;
+    padding: 5%;
+    width: 135px;
+}
+
 h1{
     color: #F0E3CE;
         /* Bleach White */
@@ -72,17 +77,15 @@ h2{
         /* Bleach White */
 }
 
-.player-one-chip {
-    background-color: #7D5C43;
-}
-    /* light color; same color as body */
-
-.player-two-chip {
-    background-color: rgba(0, 0, 0, 0.470);
-}
-    /* darker color; same color as box shadow */
-
-.player-turn{
+h3{
+    font-size: 35px;
     color: #F0E3CE;
         /* Bleach White */
+}
+
+/*  figure this out, if not 86 */
+.slot:hover {
+    background-color: rgba(205, 127, 50, 0.500);
+        /* Bronze w/ opacity change */;
+        /* this worked before but isn't working now */
 }
