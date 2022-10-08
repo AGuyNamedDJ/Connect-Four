@@ -18,12 +18,11 @@ var playerTurn = document.querySelector('.player-turn');
 const slots = document.querySelectorAll('.slot');
 const reset = document.querySelector('.reset');
 
-
+// Setting the player at the start of game
 let currentPlayer = 1;
 let winner;
-playerTurn.textContent = `${player1}'s turn!`
-
-// Log cell coordinates when clicked
+playerTurn.textContent = `${playerOne}'s turn!`
+    // player one will appear
 
 // Finding the Table Coordinates
 for (let i = 0; i < boardCell.length; i++){
@@ -40,3 +39,11 @@ function changeColor(e){
     // Get clicked column index
     let column = e.target.cellIndex;
     let row = [];
+
+// Need to Add Event Listener to the Circles
+// Review this, this may not be needed b/c in css
+Array.prototype.forEach.call(tableData, (cell) => {
+    cell.addEventListener('click', changeColor);
+    cell.style.backgroundColor = 'white';
+        //Resets the color for a new game
+});
