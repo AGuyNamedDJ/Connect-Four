@@ -1,7 +1,7 @@
 // Selectors
-let boardRow = document.getElementsByClassName("tr"); 
-let boardCell = document.getElementsByClassName ("td");
-let boardCircle = document.querySelector(".circle");
+var boardRow = document.getElementsByTagName("tr"); 
+var boardCell = document.getElementsByTagName ("td");
+var boardCircle = document.querySelector(".circle");
 let currentChip = document.querySelector(".player-turn");
 let clear = document.querySelector(".clear");
 
@@ -19,16 +19,14 @@ for (let i = 0; i < boardCell.length; i++){
 while (!playerOne) {
     var playerOne = prompt("Player One: What is your name? ");
 }
-
-let playerOneColor = "light";
+playerOneColor = "light";
 
 while (!playerTwo) {
     var playerTwo = prompt("Player Two: What is your name? ");
 }
+playerTwoColor = "dark";
 
-let playerTwoColor = "dark";
-
-let currentPlayer = 1;
+var currentPlayer = 1;
 currentChip.textContent = `${playerOne}'s Turn!`;
 
 
@@ -36,7 +34,7 @@ currentChip.textContent = `${playerOne}'s Turn!`;
 
 
 
----
+// ---
 
 // // Event Listener: Setting a Chip
 // boardCircle.addEventListener("click", setChip);
