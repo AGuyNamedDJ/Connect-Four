@@ -16,10 +16,10 @@ var tableRow = document.getElementsByTagName('tr');
 var tableData = document.getElementsByTagName('td');
 var playerTurn = document.querySelector('.player-turn');
 const slots = document.querySelectorAll('.slot');
-const resetBtn = document.querySelector('.reset');
+const reset = document.querySelector('.reset');
 
 
-var currentPlayer = 1;
+let currentPlayer = 1;
 let winner;
 playerTurn.textContent = `${player1}'s turn!`
 
@@ -34,3 +34,9 @@ for (let i = 0; i < boardCell.length; i++){
             // Row is X coordinate, Y coordinate will be the column
     })
 };
+
+// Change Color for Cell
+function changeColor(e){
+    // Get clicked column index
+    let column = e.target.cellIndex;
+    let row = [];
