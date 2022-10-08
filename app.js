@@ -34,11 +34,20 @@ for (let i = 0; i < boardCell.length; i++){
     })
 };
 
-// Change Color for Cell
+// Change Color for Cell Each Player
 function changeColor(e){
-    // Get clicked column index
     let column = e.target.cellIndex;
     let row = [];
+
+    for (i = 5; i > -1; i--){
+        //Starting from the bottom so we go negative(-)
+        if (tableRow[i].children[column].style.backgroundColor == 'white'){
+            row.push(tableRow[i].children[column]);
+            if (currentPlayer === 1){
+            
+};
+
+
 
 // Need to Add Event Listener to the Circles
 // Review this, this may not be needed b/c in css
