@@ -9,7 +9,7 @@ var playerOneColor = "white";
 while (!playerTwo){
     let playerTwo = prompt("Player Two: What is your name? ");
 };
-var playerTwoColor = "brown";
+let playerTwoColor = "brown";
 
 let tableRow = document.getElementsByTagName("tr");
 let tableData = document.getElementsByTagName("td");
@@ -19,6 +19,7 @@ const clear = document.querySelector(".clear");
 
 // Setting the player at the start of game
 let currentPlayer = 1;
+    // starting with pOne
 let winner;
 playerTurn.textContent = `${playerOne}'s turn!`
     // player one will appear
@@ -37,6 +38,7 @@ for (let i = 0; i < boardCell.length; i++){
 // Change Color for Cell Each Player
 function changeColor(e){
     let column = e.target.cellIndex;
+        // 
     let row = [];
 
     for (i = 5; i > -1; i--){
@@ -56,15 +58,32 @@ function changeColor(e){
     }
 
 Array.prototype.forEach.call(tableData, (cell) => {
+    // we are celling a fn for each element in the array
     cell.addEventListener("click", changeColor);
     // Set all slots to white for new game.
     cell.style.backgroundColor = "white";
 });
 
-// Functions for Checking for a Winner
-
+// Functions for Checking for Winning Situations
 function matchingColors(one, two, three, four){
     // Are there 4 colors in a row
     // this will be used in the other functions
     return (one === two && one === three && one === four && one !== "white" && one !== undefined);
 }
+
+function horizontal(){
+    for (let row = 0; row < tableRow.length; row++){
+        // while this is less than 6, i++ (6 rows)
+        for (let col =0; col < 4; col++){
+            // theres only 4 combinations to win horizontally, so this will cover
+           if (matchingColors(tableRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, 
+            // check each row at a time
+            // we are checking for matching colors against the background colors
+                tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
+                    // so if there are matching colors, in one of the horizontal combinations.  they win
+                    return true;
+           }
+        }
+    }
+}
+
