@@ -15,7 +15,7 @@ let tableData = document.getElementsByTagName("td");
 let tableRow = document.getElementsByTagName("tr");
 let playerTurn = document.querySelector(".player-turn");
 const clear = document.querySelector(".clear");
-const slots = document.querySelectorAll(".slot");
+const circles = document.querySelectorAll(".circle");
 
 
 // Setting the player at the start of game
@@ -50,15 +50,16 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
-                if (horizontal() || vertical()) {
+                if (diagonal() || horizontal() || vertical()) {
                     // if any 1 of the checks are true
                        return alert(`${playerOne} WINS!!`);
-                    } else{
+                    } else {
                         playerTurn.textContent = `${playerTwo}'s turn`
                         // if the conditions are ==, then switch to the nextplayers turn
                         return currentPlayer = 2;
+                    }
                 }
-            }else{
+            }else {
                 // Else is for playerTwo
                 row[0].style.backgroundColor = "brown";
             }
@@ -68,7 +69,7 @@ function changeColor(e){
 Array.prototype.forEach.call(tableData, (cell) => {
     // we are celling a fn for each element in the array
     cell.addEventListener("click", changeColor);
-    // Set all slots to white for new game.
+    // Set all circles to white for new game.
     cell.style.backgroundColor = "white";
 });
 
@@ -78,6 +79,19 @@ function matchingColors(one, two, three, four){
     // Are there 4 colors in a row
     // this will be used in the other functions
     return (one === two && one === three && one === four && one !== "white" && one !== undefined);
+};
+
+// Diagonal
+function diagonal(){
+    for(let col = 0; col < 4; col++){
+        for (let row = 0; row < 3; row++){
+            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor,
+                tableRow[row+2].children[col+2].style.backgroundColor,tableRow[row+3].children[col+3].style.backgroundColor)){
+                    return true;
+                }
+            }
+        }
+    }
 };
 
 // Check if the 4 chips are horizontal?
@@ -103,10 +117,11 @@ function vertical(){
     for (let col = 0; col < 7; col++){
         for (let row = 0; row < 3; row++){
             // there are only 3 circle combinations up and down to win
-            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor,
+            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor,
                                 tableRow[row+2].children[col].style.backgroundColor,tableRow[row+3].children[col].style.backgroundColor)){
                 return true;
             };
         }   
     }
 };
+
