@@ -36,10 +36,10 @@ for (let i = 0; i < tableData.length; i++){
     })
 };
 
-// Change Color for Cell Each Player
+// Change Circle Color for a Player Move
 function changeColor(e){
     let column = e.target.cellIndex;
-        // 
+        // we are targetting
     let row = [];
 
     for (i = 5; i > -1; i--){
@@ -50,7 +50,7 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
-                if (diagonal() || horizontal() || vertical()) {
+                if (diagonalOne() || horizontal() || vertical()) {
                     // if any 1 of the checks are true
                        return alert(`${playerOne} WINS!!`);
                     } else {
@@ -82,10 +82,11 @@ function matchingColors(one, two, three, four){
 };
 
 // Diagonal
-function diagonal(){
+function diagonalOne(){
     for(let col = 0; col < 4; col++){
         for (let row = 0; row < 3; row++){
             if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor,
+                // go up by 1 on the row and column every iteration
                 tableRow[row+2].children[col+2].style.backgroundColor,tableRow[row+3].children[col+3].style.backgroundColor)){
                     return true;
                 }
@@ -93,6 +94,20 @@ function diagonal(){
         }
     }
 };
+
+// Second Diagnoal Condition going down
+function diagonalCheckTwo(){
+    for(let col = 0; col < 4; col++){
+        for (let row = 5; row > 2; row--){
+            // We are starting from the bottom her, so --
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row-1].children[col+1].style.backgroundColor,
+                // these are opposite
+                tableRow[row-2].children[col+2].style.backgroundColor,tableRow[row-3].children[col+3].style.backgroundColor)){
+                    return true;
+            }
+        }
+    }
+}
 
 // Check if the 4 chips are horizontal?
 function horizontal(){
