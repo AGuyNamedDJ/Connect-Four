@@ -50,11 +50,12 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
-                if (horizontal()) {
+                if (horizontal() || vertical()) {
+                    // if any 1 of the checks are true
                        return alert(`${playerOne} WINS!!`);
                     } else{
                         playerTurn.textContent = `${playerTwo}'s turn`
-                        // so if that isn't ==, then switch to playerTwo
+                        // if the conditions are ==, then switch to the nextplayers turn
                         return currentPlayer = 2;
                 }
             }else{
@@ -62,7 +63,7 @@ function changeColor(e){
                 row[0].style.backgroundColor = "brown";
             }
         }
-    }
+    };
 
 Array.prototype.forEach.call(tableData, (cell) => {
     // we are celling a fn for each element in the array
@@ -77,7 +78,7 @@ function matchingColors(one, two, three, four){
     // Are there 4 colors in a row
     // this will be used in the other functions
     return (one === two && one === three && one === four && one !== "white" && one !== undefined);
-}
+};
 
 // Check if the 4 chips are horizontal?
 function horizontal(){
@@ -90,10 +91,22 @@ function horizontal(){
             // we are checking for matching colors against the background colors
                 tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
                     // so if there are matching colors, in one of the horizontal combinations.  they win
-            
                     return true;
            }
         }
     }
-}
+};
 
+// Are they up & down?
+function vertical(){
+    // should be the opposite of the horizontal conditions
+    for (let col = 0; col < 7; col++){
+        for (let row = 0; row < 3; row++){
+            // there are only 3 circle combinations up and down to win
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor,
+                                tableRow[row+2].children[col].style.backgroundColor,tableRow[row+3].children[col].style.backgroundColor)){
+                return true;
+            };
+        }   
+    }
+};
