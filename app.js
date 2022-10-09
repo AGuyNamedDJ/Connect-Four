@@ -1,15 +1,15 @@
 // Get Player Names & Save
 while (!playerOne){
-    let playerOne = prompt("Player One: What is your Name? ");
+    var playerOne = prompt("Player One: What is your Name? ");
     // Grabs input from player & assigns it
 };
 var playerOneColor = "white";
     // Save this color for player
 
 while (!playerTwo){
-    let playerTwo = prompt("Player Two: What is your name? ");
+    var playerTwo = prompt("Player Two: What is your name? ");
 };
-let playerTwoColor = "brown";
+var playerTwoColor = "brown";
 
 let tableRow = document.getElementsByTagName("tr");
 let tableData = document.getElementsByTagName("td");
@@ -25,9 +25,9 @@ playerTurn.textContent = `${playerOne}'s turn!`
     // player one will appear
 
 // Finding the Table Coordinates
-for (let i = 0; i < boardCell.length; i++){
+for (let i = 0; i < tableData.length; i++){
     // While i is less than the total # of cells
-    boardCell[i].addEventListener("click", (e) =>{
+    tableData[i].addEventListener("click", (e) =>{
         // Adding event listener(click) for each cell
             // (e) event
         console.log(`${e.target.parentElement.rowIndex}, ${e.target.cellIndex}`);
@@ -81,6 +81,7 @@ function horizontal(){
             // we are checking for matching colors against the background colors
                 tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
                     // so if there are matching colors, in one of the horizontal combinations.  they win
+            
                     return true;
            }
         }

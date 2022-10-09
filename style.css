@@ -56,11 +56,13 @@ box-shadow: 0px 0px #888888;
 }
 
 .game table tr td{
+    /* This goes for the */
     background-color: #F0E3CE;
     border: 3px solid rgba(205, 127, 50, 0.80);
         /* Puts gold border around circles */
     border-radius: 50%;
         /* Curves inner board */
+        /* Theres a property that adds horizontal/vertical boxes like a real connect four board */
     cursor: pointer;
     height: 135px;
     padding: 5%;
