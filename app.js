@@ -50,6 +50,12 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
+                if (horizontalCheck()) {
+                       return alert(`${playerOne} WINS!!`);
+                    } else{
+                        playerTurn.textContent = `${playerTwo}'s turn`
+                        // so if that isn't ==, then switch to playerTwo
+                        return currentPlayer = 2;
                 }
             }else{
                 // Else is for playerTwo
