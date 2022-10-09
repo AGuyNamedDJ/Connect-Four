@@ -11,11 +11,12 @@ while (!playerTwo){
 };
 var playerTwoColor = "brown";
 
-let tableRow = document.getElementsByTagName("tr");
 let tableData = document.getElementsByTagName("td");
+let tableRow = document.getElementsByTagName("tr");
 let playerTurn = document.querySelector(".player-turn");
-const slots = document.querySelectorAll(".slot");
 const clear = document.querySelector(".clear");
+const slots = document.querySelectorAll(".slot");
+
 
 // Setting the player at the start of game
 let currentPlayer = 1;
@@ -77,7 +78,7 @@ function horizontal(){
         for (let col =0; col < 4; col++){
             // theres only 4 combinations to win horizontally, so this will cover
            if (matchingColors(tableRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, 
-            // check each row at a time
+            // check each row at a time & increase by 1
             // we are checking for matching colors against the background colors
                 tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
                     // so if there are matching colors, in one of the horizontal combinations.  they win
