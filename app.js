@@ -28,6 +28,7 @@ for (let i = 0; i < boardCell.length; i++){
     // While i is less than the total # of cells
     boardCell[i].addEventListener("click", (e) =>{
         // Adding event listener(click) for each cell
+            // (e) event
         console.log(`${e.target.parentElement.rowIndex}, ${e.target.cellIndex}`);
             // Row is X coordinate, Y coordinate will be the column
     })
