@@ -50,7 +50,7 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
-                if (horizontalCheck()) {
+                if (horizontal()) {
                        return alert(`${playerOne} WINS!!`);
                     } else{
                         playerTurn.textContent = `${playerTwo}'s turn`
@@ -72,12 +72,14 @@ Array.prototype.forEach.call(tableData, (cell) => {
 });
 
 // Functions for Checking for Winning Situations
+// Are there 4 chips that match?
 function matchingColors(one, two, three, four){
     // Are there 4 colors in a row
     // this will be used in the other functions
     return (one === two && one === three && one === four && one !== "white" && one !== undefined);
 }
 
+// Check if the 4 chips are horizontal?
 function horizontal(){
     for (let row = 0; row < tableRow.length; row++){
         // while this is less than 6, i++ (6 rows)
