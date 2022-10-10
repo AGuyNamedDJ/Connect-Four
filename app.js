@@ -42,7 +42,7 @@ function changeColor(e){
         // we are targetting
     let row = [];
 
-    for (i = 5; i > -1; i--){
+    for (i = 5; i > - 1; i--){
         //Starting from the bottom so we go negative(-)
         if (tableRow[i].children[column].style.backgroundColor == "white"){
             // So if the cell is white (unused) we can change the color
@@ -50,7 +50,7 @@ function changeColor(e){
             if (currentPlayer === 1){
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
-                if (diagonalOne() || horizontal() || vertical()) {
+                if (diagonalOne() || diagonalTwo() || horizontal() || vertical()) {
                     // if any 1 of the checks are true
                        return alert(`${playerOne} WINS!!`);
                     } else {
@@ -81,6 +81,21 @@ function matchingColors(one, two, three, four){
     return (one === two && one === three && one === four && one !== "white" && one !== undefined);
 };
 
+// Draw
+function draw(){
+    let circlesTaken = []
+    for (i = 0; i < tableData.length; i++){
+        if (tableData[i].style.backgroundColor !== "white"){
+            // if the color circle taken, then it's usable for a chip
+            circlesTaken.push(tableData[i]);
+        }
+    }
+    if (circlesTaken.length === tableData.length){
+        // if all of the available circles are full then..
+        return true;
+    }
+};
+
 // Diagonal
 function diagonalOne(){
     for(let col = 0; col < 4; col++){
@@ -96,7 +111,7 @@ function diagonalOne(){
 };
 
 // Second Diagnoal Condition going down
-function diagonalCheckTwo(){
+function diagonalTwo(){
     for(let col = 0; col < 4; col++){
         for (let row = 5; row > 2; row--){
             // We are starting from the bottom her, so --
