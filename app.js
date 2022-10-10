@@ -31,7 +31,7 @@ playerTurn.textContent = `${playerOne}'s Turn!`
     // playerOne will appear
 
 // Finding the Table Coordinates
-for (i = 0; i < tableData.length; i ++){
+for (let i = 0; i < tableData.length; i ++){
     // While i is less than the total # of cells    
     tableData[i].addEventListener("click", (e) =>{
         // Adding event listener(click) for each cell
@@ -48,12 +48,12 @@ function changeColor(e){
     let row = [];
 
 // Now lets make each players moves
-    for (i = 5; i > -1; i--){
+    for (let i = 5; i > -1; i--){
         //Starting from the bottom so we go negative(-)
         if (tableRow[i].children[column].style.backgroundColor == "white"){
             // So if the cell is white (unused) we can change the color
             row.push(tableRow[i].children[column]);
-            if (whoseTurn=== 1){
+            if (whoseTurn === 1){
                 row[0].style.backgroundColor = "#F0E3CE";
                     // playerOneColor is put in the index
                 if (diagonalOne() || diagonalTwo() || horizontal() || vertical()){
@@ -67,7 +67,7 @@ function changeColor(e){
                     return alert("You both Win! ");
                 }else {
                     playerTurn.textContent = `${playerTwo}'s Turn! `
-                    // if the conditions are ==, then switch to the nextplayers turn
+                    // if the conditions are valid then switch to the nextplayers turn
                     return whoseTurn = 2;
                 }
             }else {
@@ -85,7 +85,7 @@ function changeColor(e){
                     return alert("You both Win! ");
                 }else{
                     playerTurn.textContent = `${playerOne}'s Turn! `;
-                    // if the conditions are ==, then switch back to playerOnes go
+                    // if the conditions are valid then switch back to playerOnes go
                     return whoseTurn = 1;
                 }
                 
@@ -114,9 +114,9 @@ function matchingColors(one, two, three, four){
 function diagonalOne(){
     for(let col = 0; col < 4; col++){
         for (let row = 0; row < 3; row++){
-            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor,
+            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row + 1].children[col + 1].style.backgroundColor,
                 // go up by 1 on the row and column every iteration
-                tableRow[row+2].children[col+2].style.backgroundColor,tableRow[row+3].children[col+3].style.backgroundColor)){
+                tableRow[row + 2].children[col + 2].style.backgroundColor,tableRow[row + 3].children[col + 3].style.backgroundColor)){
                     return true;
                 }
             }
@@ -129,9 +129,9 @@ function diagonalTwo(){
     for(let col = 0; col < 4; col++){
         for (let row = 5; row > 2; row--){
             // We are starting from the bottom her, so --
-            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row-1].children[col+1].style.backgroundColor,
+            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row - 1].children[col + 1].style.backgroundColor,
                 // these are opposite
-                tableRow[row-2].children[col+2].style.backgroundColor,tableRow[row-3].children[col+3].style.backgroundColor)){
+                tableRow[row - 2].children[col + 2].style.backgroundColor,tableRow[row - 3].children[col + 3].style.backgroundColor)){
                     return true;
             }
         }
@@ -141,7 +141,7 @@ function diagonalTwo(){
 // Draw
 function draw(){
     let fullCircle = []
-    for (i=0; i < tableData.length; i++){
+    for (let i = 0; i < tableData.length; i++){
         if (tableData[i].style.backgroundColor !== "white"){
             // if the color circle taken, then it's usable for a chip
             fullCircle.push(tableData[i]);
@@ -157,12 +157,12 @@ function draw(){
 function horizontal(){
     for (let row = 0; row < tableRow.length; row++){
         // while this is less than 6, i++ (6 rows)
-        for (let col =0; col < 4; col++){
+        for (let col = 0; col < 4; col++){
             // theres only 4 combinations to win horizontally, so this will cover
-           if (matchingColors(tableRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, 
+           if (matchingColors(tableRow[row].children[col].style.backgroundColor,tableRow[row].children[col + 1].style.backgroundColor, 
             // check each row at a time & increase by 1
             // we are checking for matching colors against the background 
-                tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
+                tableRow[row].children[col + 2].style.backgroundColor, tableRow[row].children[col + 3].style.backgroundColor)){
                 // so if there are matching colors, in one of the horizontal combinations.  they win
                return true;
            }
@@ -176,8 +176,8 @@ function vertical(){
     for (let col = 0; col < 7; col++){
         for (let row = 0; row < 3; row++){
             // there are only 3 circle combinations up and down to win
-            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor,
-                                tableRow[row+2].children[col].style.backgroundColor,tableRow[row+3].children[col].style.backgroundColor)){
+            if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row + 1].children[col].style.backgroundColor,
+                                tableRow[row + 2].children[col].style.backgroundColor,tableRow[row + 3].children[col].style.backgroundColor)){
                 return true;
             };
         }   
