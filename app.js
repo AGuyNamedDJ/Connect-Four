@@ -52,6 +52,7 @@ function changeColor(e){
         // we are targetting
     let row = [];
 
+    // Now lets make each players moves
     for (i = 5; i > - 1; i--){
         //Starting from the bottom so we go negative(-)
         if (tableRow[i].children[column].style.backgroundColor == "white") {
@@ -64,23 +65,40 @@ function changeColor(e){
                     // if any 1 of the checks are true
                     playerTurn.textContent = `${playerOne} Wins! `;
                     playerTurn.style.color = playerOneColor;
-                       return alert(`${playerOne} Wins! `);
-                    }else if (draw()) {
-                        playerTurn.textContent = "You both Win! ";
-                        return alert("You both Win! ");
-                    } else {
-                        playerTurn.textContent = `${playerTwo}'s turn `
-                        // if the conditions are ==, then switch to the nextplayers turn
-                        return whoseTurn = 2;
-                    }
+                    return alert(`${playerOne} Wins! `);
+                }else if (draw()) {
+                    // if all spaces are full without winner
+                    playerTurn.textContent = "You both Win! ";
+                    return alert("You both Win! ");
+                } else {
+                    playerTurn.textContent = `${playerTwo}'s turn `
+                    // if the conditions are ==, then switch to the nextplayers turn
+                    return whoseTurn = 2;
                 }
             }else {
-                // Else is for playerTwo
-                row[0].style.backgroundColor = "brown";
+                    // Else is for playerTwo
+                    // same thing but make sure its playerTwo
+                    row[0].style.backgroundColor = "brown";
+                    if (diagonalOne() || diagonalTwo() || horizontal() || vertical()) {
+                    // if any 1 of the checks are true
+                    playerTurn.textContent = `${playerTwo} Wins! `;
+                    playerTurn.style.color = playerTwoColor;
+                    return alert(`${playerTwo} Wins! `);
+                }else if (draw()) {
+                    // if all spaces are full without winner
+                    playerTurn.textContent = "You both Win! ";
+                    return alert("You both Win! ");
+                } else {
+                    playerTurn.textContent = `${playerOne}'s turn `
+                    // if the conditions are ==, then switch back to playerOnes go
+                    return whoseTurn = 1;
+                    }
+                    
+                }
             }
         }
-    };
-
+       
+    }
 
 
 // Functions for Checking for Winning Conditions
