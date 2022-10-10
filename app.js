@@ -183,3 +183,7 @@ function vertical(){
         };   
     };
 };
+
+// Clear board
+// we can just refresh the screen
+//attach to clear, make bttn
