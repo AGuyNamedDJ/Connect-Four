@@ -1,28 +1,31 @@
 // Get Player Names & Save
-while (!playerOne){
+while (!playerOne) {
     var playerOne = prompt("Player One: What is your Name? ");
     // Grabs input from player & assigns it
 };
 var playerOneColor = "white";
     // Save this color for player
 
-while (!playerTwo){
+while (!playerTwo) {
     var playerTwo = prompt("Player Two: What is your name? ");
 };
 var playerTwoColor = "brown";
 
+
+// My Selectors
 let tableData = document.getElementsByTagName("td");
 let tableRow = document.getElementsByTagName("tr");
 let playerTurn = document.querySelector(".player-turn");
+// use .playeretc because its a class, id would use # etc
 const clear = document.querySelector(".clear");
 const circles = document.querySelectorAll(".circle");
 
 
 // Setting the player at the start of game
-let currentPlayer = 1;
-    // starting with pOne
+let whoseTurn = 1;
+    // starting with playerOne
 let winner;
-playerTurn.textContent = `${playerOne}'s turn!`
+playerTurn.textContent = `${playerOne}'s turn! `
     // player one will appear
 
 // Finding the Table Coordinates
@@ -36,6 +39,13 @@ for (let i = 0; i < tableData.length; i++){
     })
 };
 
+Array.prototype.forEach.call(tableData, (cell) => {
+    // we are celling a fn for each element in the array
+    cell.addEventListener("click", changeColor);
+    // Set all circles to white for new game.
+    cell.style.backgroundColor = "white";
+});
+
 // Change Circle Color for a Player Move
 function changeColor(e){
     let column = e.target.cellIndex;
@@ -44,19 +54,24 @@ function changeColor(e){
 
     for (i = 5; i > - 1; i--){
         //Starting from the bottom so we go negative(-)
-        if (tableRow[i].children[column].style.backgroundColor == "white"){
+        if (tableRow[i].children[column].style.backgroundColor == "white") {
             // So if the cell is white (unused) we can change the color
             row.push(tableRow[i].children[column]);
-            if (currentPlayer === 1){
+            if (whoseTurn === 1) {
                 row[0].style.backgroundColor = "white";
                     // playerOnes Color is put in the index
                 if (diagonalOne() || diagonalTwo() || horizontal() || vertical()) {
                     // if any 1 of the checks are true
-                       return alert(`${playerOne} WINS!!`);
+                    playerTurn.textContent = `${playerOne} Wins! `;
+                    playerTurn.style.color = playerOneColor;
+                       return alert(`${playerOne} Wins! `);
+                    }else if (draw()) {
+                        playerTurn.textContent = "You both Win! ";
+                        return alert("You both Win! ");
                     } else {
-                        playerTurn.textContent = `${playerTwo}'s turn`
+                        playerTurn.textContent = `${playerTwo}'s turn `
                         // if the conditions are ==, then switch to the nextplayers turn
-                        return currentPlayer = 2;
+                        return whoseTurn = 2;
                     }
                 }
             }else {
@@ -66,15 +81,10 @@ function changeColor(e){
         }
     };
 
-Array.prototype.forEach.call(tableData, (cell) => {
-    // we are celling a fn for each element in the array
-    cell.addEventListener("click", changeColor);
-    // Set all circles to white for new game.
-    cell.style.backgroundColor = "white";
-});
 
-// Functions for Checking for Winning Situations
-// Are there 4 chips that match?
+
+// Functions for Checking for Winning Conditions
+// Are there 4 chips that match side by side?
 function matchingColors(one, two, three, four){
     // Are there 4 colors in a row
     // this will be used in the other functions
@@ -82,7 +92,7 @@ function matchingColors(one, two, three, four){
 };
 
 // Draw
-function draw(){
+function draw() {
     let circlesTaken = []
     for (i = 0; i < tableData.length; i++){
         if (tableData[i].style.backgroundColor !== "white"){
@@ -97,7 +107,7 @@ function draw(){
 };
 
 // Diagonal
-function diagonalOne(){
+function diagonalOne() {
     for(let col = 0; col < 4; col++){
         for (let row = 0; row < 3; row++){
             if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor,
@@ -107,11 +117,11 @@ function diagonalOne(){
                 }
             }
         }
-    }
-};
+    };
+
 
 // Second Diagnoal Condition going down
-function diagonalTwo(){
+function diagonalTwo() {
     for(let col = 0; col < 4; col++){
         for (let row = 5; row > 2; row--){
             // We are starting from the bottom her, so --
@@ -125,7 +135,7 @@ function diagonalTwo(){
 }
 
 // Check if the 4 chips are horizontal?
-function horizontal(){
+function horizontal() {
     for (let row = 0; row < tableRow.length; row++){
         // while this is less than 6, i++ (6 rows)
         for (let col =0; col < 4; col++){
@@ -142,13 +152,13 @@ function horizontal(){
 };
 
 // Are they up & down?
-function vertical(){
+function vertical() {
     // should be the opposite of the horizontal conditions
     for (let col = 0; col < 7; col++){
         for (let row = 0; row < 3; row++){
             // there are only 3 circle combinations up and down to win
             if (matchingColors(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor,
-                                tableRow[row+2].children[col].style.backgroundColor,tableRow[row+3].children[col].style.backgroundColor)){
+                tableRow[row+2].children[col].style.backgroundColor,tableRow[row+3].children[col].style.backgroundColor)){
                 return true;
             };
         }   
