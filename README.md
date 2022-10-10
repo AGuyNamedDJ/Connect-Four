@@ -23,7 +23,7 @@ The game ends when there is a 4-in-a-row or a stalemate.
 
 Design
 
-Board Bacground = Cafe Au Lait #A67B5B
+Board Background = Cafe Au Lait #A67B5B
 Border = Cafe Noir #4B3621
 Opp 1 = Almond #EADDCA or Buttercream #F0E3CE
 Opp 2 = Coffee #6F4E37
