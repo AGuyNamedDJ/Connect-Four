@@ -8,7 +8,7 @@ CONNECT FOUR
 
 Objective:
 
-` The rules are simple: Tey to build a row of four checkers while keeping your opponent from doing the same; either vertically, horizontally, or diagonally. Sounds easy, but it's not!`
+` The rules are simple: Try to build a row of four checkers while keeping your opponent from doing the same; either vertically, horizontally, or diagonally. Sounds easy, but it's not!`
 
 ---
 
